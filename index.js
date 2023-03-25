@@ -12,8 +12,8 @@ const stripeRoute = require("./routes/stripe");
 dotenv.config();
 
 
-const fileURLToPath = require('url');
-const path = require('path');
+// const fileURLToPath = require('url');
+// const path = require('path');
 
 // const __filename = fileURLToPath(import.meta.url);
 // const __dirname = path.dirname(__filename);
@@ -36,11 +36,11 @@ app.use("/api/orders", orderRoute)
 app.use("/api/checkout", stripeRoute);
 
 
-// static files
-app.use(express.static(path.resolve(__dirname, process.env.PUBLIC_DIR)));
-app.use("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "dist", "index.html"))
-})
+// // static files
+// app.use(express.static(path.resolve(__dirname, process.env.PUBLIC_DIR)));
+// app.use("*", (req, res) => {
+//     res.sendFile(path.resolve(__dirname, "dist", "index.html"))
+// })
 
 
 app.listen(process.env.PORT || 5000, () => {
